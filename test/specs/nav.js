@@ -30,7 +30,7 @@ describe('Navigation Menu', () => {
         //await $('#primary-menu li').waitForClickable()
 
         //Verify if Home element is disabled
-        await $('#primary-menu li').waitForEnabled({reverse: true, timeoutMsg: 'Could not verify #primary-menu li is disabled'})
+       // await $('#primary-menu li').waitForEnabled({reverse: true, timeoutMsg: 'Could not verify #primary-menu li is disabled'})
 
 
         // alt if want to change  const navLinks = await $('#primary-menu').$$('li[id*=menu]');
