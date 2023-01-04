@@ -24,7 +24,7 @@ exports.config = {
     //
     specs: [
         // ToDo: define location for spec files here
-        './test/specs/**/upload.js'
+        './test/specs/**/iframe.js'
     ],
     // Patterns to exclude.
     exclude: [
