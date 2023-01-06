@@ -1,6 +1,8 @@
+import HomePage from '../pages/home-page';
+
 describe('Navigation Menu', () => {
     it('Get the text of all menu items & assert them', async () => {
-        await browser.url('/');
+        await HomePage.open();
 
         const expectedLinks = [
             "Home", 
@@ -14,14 +16,13 @@ describe('Navigation Menu', () => {
         const actualLinks = [];
 
         // wait until Home text is displayed on the navigation menu
-        // await browser.waitUntil(async function () {
-        //     const homeText = await $('#primary-menu li').getText(); //Home
-        //     return homeText === "Home"; // true | false
-        // }, {
-        //     timeout: 5000,
-        //     timeoutMsg: 'Could not verify the Home text from #primary-menu li'
-        // }
-        // )
+        await browser.waitUntil(async function () {
+            const homeText = await HomePage.NavComponent.firstNavMenu.getText(); //Home
+            return homeText === "Home"; // true | false
+        }, {
+            timeout: 5000,
+            timeoutMsg: 'Could not verify the Home text from #primary-menu li'
+        });
 
         // wait until Home text is displayed on the navigation menu
        // await $('#primary-menu li').waitForDisplayed();
@@ -34,7 +35,7 @@ describe('Navigation Menu', () => {
 
 
         // alt if want to change  const navLinks = await $('#primary-menu').$$('li[id*=menu]');
-        const navLinks = await $$('#primary-menu li[id*=menu]');
+        const navLinks = await HomePage.NavComponent.linksNavMenu;
 
         for (const link of navLinks) {
             actualLinks.push(await link.getText());

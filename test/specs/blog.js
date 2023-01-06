@@ -1,4 +1,4 @@
-import { expect as expectChai } from 'chai'
+//import { expect as expectChai } from 'chai'
 //import { expect as expectWDIO } from '@wdio/globals'
 
 describe('Get list of recent posts, check they are >10 characters & total of 4 posts  ', () => {
