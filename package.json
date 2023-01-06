@@ -24,6 +24,8 @@
     "@wdio/mocha-framework": "^8.0.13",
     "@wdio/spec-reporter": "^8.0.13",
     "chromedriver": "^108.0.0",
+    "eslint": "^8.31.0",
+    "eslint-plugin-wdio": "^8.0.14",
     "wdio-chromedriver-service": "^8.0.1"
   }
 }
