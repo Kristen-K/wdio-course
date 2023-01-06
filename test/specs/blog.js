@@ -1,20 +1,21 @@
 //import { expect as expectChai } from 'chai'
 //import { expect as expectWDIO } from '@wdio/globals'
+import BlogPage from '../pages/blog-page';
 
 describe('Get list of recent posts, check they are >10 characters & total of 4 posts  ', () => {
     it('Get list of recent posts', async () => {
-
-
-            await browser.url('/blog/');
+        await BlogPage.open();
 
             // Get recent Post list elements
-            const recentPostList = await $$('#recent-posts-3 ul li');
+            const recentPostList = await BlogPage.postList;
 
             // Loop through the list & assert the text length is greater than 10
-            for (const item of recentPostList) {
-                const text = await item.getText();
-                await expect(text.length).toBeGreaterThan(10);
-            }
+            // for (const item of recentPostList) {
+            //     const text = await item.getText();
+            //     await expect(text.length).toBeGreaterThan(10);
+            // }
+
+            await BlogPage.postLength();
 
             // Assert the total length of the list is 4
             await expect(recentPostList).toHaveLength(5);
