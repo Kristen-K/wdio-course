@@ -14,20 +14,9 @@ class BlogPage {
             const text = await item.getText();
             await expect(text.length).toBeGreaterThan(10);
         }
-    }
 
+        await expect(recentPostList).toHaveLength(5);
+    }
 }
 
 export default new BlogPage();
-
-
-// for (const item of recentPostList) {
-//     const text = await item.getText();
-//     await expect(text.length).toBeGreaterThan(10);
-// }
-
-
-// async postLength(item) {
-//     const text = await item.getText();
-//     await expect(text.length).toBeGreaterThan(10);
-// }
