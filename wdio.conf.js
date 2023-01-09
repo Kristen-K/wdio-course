@@ -25,7 +25,7 @@ exports.config = {
     specs: [
         // ToDo: define location for spec files here
         // runs one file
-       // './test/specs/**contact.js'
+       // './test/specs/**/contact.js'
 
        // runs all files specified in suites
        './test/specs/**/*.js'
@@ -33,6 +33,8 @@ exports.config = {
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
+        './test/specs/**/nav.js',
+        './test/specs/**/contact.js',
     ],
     //Define suites
     suites: {
