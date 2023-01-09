@@ -24,12 +24,26 @@ exports.config = {
     //
     specs: [
         // ToDo: define location for spec files here
-        './test/specs/**contact.js'
+        // runs one file
+       // './test/specs/**contact.js'
+
+       // runs all files specified in suites
+       './test/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
     ],
+    //Define suites
+    suites: {
+        smoke: [
+            './test/specs/**/home.js',
+            './test/specs/**/contact.js'
+        ],
+        component: [
+            './test/specs/**/nav.js'
+        ]
+    },
     //
     // ============
     // Capabilities
