@@ -1,10 +1,11 @@
 import ContactPage from '../pages/contact-page';
+import { faker } from '@faker-js/faker';
 
 describe('Fill in Contact input fields, submit form & assert success message', () => {
     it('fill in name, email, phone & message', async () => {
         await ContactPage.open();
 
-        await ContactPage.submitForm('Test Name','test@testy.co.uk', '00000000000','Hello');
+        await ContactPage.submitForm(faker.name.fullName(),faker.internet.email(), faker.phone.number(), faker.lorem.paragraphs(2));
 
         // add.Value add value
         // set.Value add clears the input first then addds value
