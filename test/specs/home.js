@@ -1,4 +1,5 @@
 import HomePage from '../pages/home-page';
+import allureReporter from '@wdio/allure-reporter';
 
 describe("Home", () => {
 
@@ -19,7 +20,7 @@ describe("Home", () => {
     console.log('THIS RUNS AFTER EACH TEST');
   })
   it("Open URL & assert test", async () => {
-
+    allureReporter.addSeverity("minor");
     //Assert title
     await expect(browser).toHaveTitle(
       "Practice E-Commerce Site – Automation Bro"
@@ -45,6 +46,7 @@ describe("Home", () => {
 
   //img.custom-logo
   it("Click on logo button & assert URL contains does not contain get-started text", async () => {
+    allureReporter.addFeature("Logo verification");
     // Click Logo 
     await HomePage.imageLogo.click();
 
