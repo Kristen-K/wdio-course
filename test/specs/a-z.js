@@ -1,11 +1,11 @@
 describe("Home", () => {
   it("Open URL & get href of a-z directory page", async () => {
-    browser.url("https://www.medicines.org.uk/emc/browse-companies/W");
+    browser.url("https://www.medicines.org.uk/emc/browse-companies/A");
     await $("#onetrust-accept-btn-handler").click();
     //const k = await $('.col-md-6 ul li a').getAttribute('href');
     //console.log(k);
 
-    let companyHrefs = [];
+    //let companyHrefs = [];
     let threePages = [];
     const direct = await $$(".col-md-6 ul li a");
 
