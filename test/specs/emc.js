@@ -1,5 +1,20 @@
-// const fs = require('fs');
 // const path = require('path');
+
+const fs = require('fs');
+
+// helper function (time 5.50)
+function jsonReader(filePath, cb) {
+    fs.readFile(filePath, 'utf-8', (err, fileData) => {
+        if (err) {
+            return cb && cb(err);
+        } try {
+            const object = JSON.parse(fileData);
+            return cb & cb(null, object);
+        } catch (err) {
+            return cb & cb(err);
+        }
+    })
+}
 
 describe("Home", () => {
     it("Open URL, get href of each directory page & get data", async () => {
@@ -63,13 +78,27 @@ describe("Home", () => {
           companyInformation.push(await company.getText());
       }
           for (var h = 0; h < headingText.length; h ++ ) {
-        contactMap.set(headingText[h], companyInformation[h]);
+            jsonReader('./test/data/companies.json', (err, data) => {
+              if (err) {
+                  console.log(err);
+              } else {
+                 data.name = headingText,
+                  fs.writeFile('./test/data/companies.json', JSON.stringify(data), err => {
+                      if (err) {
+                          console.log(err);
+                      }
+                   })
+               }
+          })
+
+            //works but format not right?
+        //contactMap.set(headingText[h], companyInformation[h]);
       }
       // maybe push create add to file here:
       // "name": varaible
       // issue is with key value format
 
-         companyList.push(contactMap);
+         //companyList.push(contactMap);
        }
     console.log("HERE:", companyList);
 
