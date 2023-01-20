@@ -9,7 +9,7 @@ describe("Company details", () => {
         // below needs to be pushed to company array when all details are ready
        //console.log("Here:" , await title.getText());
 
-        //const Company = [];
+       
         const contactHeadings = await $$('.gfdCompanyDetailsTitle');
         const headingText = [];
         const companyDetails = await $$('.gfdCompanyDetailsCol p');
@@ -33,11 +33,30 @@ describe("Company details", () => {
 
         for (var h = 0; h < headingText.length; h ++ ) {
             contactMap.set(headingText[h], companyInformation[h]);
+            // try adding contact map in loop 
+            //or write straight into the file
+            //`${key}: ${value}`);
         }
-        console.log("HERE:", contactMap);
+        //console.log("HERE:", contactMap);
 
         //console.log("HERE:", companyInformation);
+
+        //trying to convert to object
+        // const entries = new Map([
+        //     ['foo', 'bar'],
+           
+        //   ]);
+          
+        //   const obj = Object.fromEntries(entries);
+          
     
 
     })
 })
+
+
+
+// notes - loop that
+// name: ${title}
+// {headingText[h]}: {companyInformation[h]}
+// logo stuff after - separate file?
