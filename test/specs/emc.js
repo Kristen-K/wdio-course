@@ -61,7 +61,7 @@ describe("Home", () => {
         await browser.url(threePages[p]);
         // asigns element to variable then logs text - will need to give name to each object so will keep variable 
         // title element
-        //const title = await $('h1');
+        const title = await $('h1');
         let companyInfo = {}
 
         companyInfo["Company Name"] = await $("h1").getText()
@@ -69,33 +69,34 @@ describe("Home", () => {
         console.log(companyInfo)
        
 
-//         for (var t = 0; t < title.length; t ++ ) {
-//             // creates key value pairs
+        for (var t = 0; t < title.length; t ++ ) {
+            // creates key value pairs
            
-//             name.push(await title.getText());
-//             nameMap.set("Name", name[t]);
-//             console.log("HERE:", name[t]);
-//             console.log("HERE:", nameMap[t]);
+            name.push(await title.getText());
+            nameMap.set("Name", name[t]);
+            console.log("HERE:", name[t]);
+            console.log("HERE:", nameMap[t]);
             
-//             //companyList.push(await nameMap[t]);
-//    }
+            companyList.push(await nameMap[t]);
+    }
 
-    //     /////
-    //     const contactHeadings = await $$('.gfdCompanyDetailsTitle');
-    //     const headingText = [];
-    //     const companyDetails = await $$('.gfdCompanyDetailsCol p');
-    //     const companyInformation = [];
+        /////
+        const contactHeadings = await $$('.gfdCompanyDetailsTitle');
+        const headingText = [];
+        const companyDetails = await $$('.gfdCompanyDetailsCol p');
+        const companyInformation = [];
+
     //     // object
     //     //const companyInformation = {};
     //     let contactMap = new Map();
     //     //console.log("HERE:", companyDetails);
         
     //      //********** to use
-    //     //loops & pushes the titles to new variable 
-    //     for (var contact of contactHeadings ) {
-    //         headingText.push(await contact.getText());
+        //loops & pushes the titles to new variable 
+        for (var contact of contactHeadings ) {
+            headingText.push(await contact.getText());
            
-    //     }
+        }
 
     //      //loops & pushes the company info to new variable 
     //      for (var company of companyDetails ) {
@@ -118,7 +119,7 @@ describe("Home", () => {
         // console.log("HERE:", name);
         // console.log("HERE:", nameMap);
 
-    // })
+    })
 
 })
 
