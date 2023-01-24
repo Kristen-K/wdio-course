@@ -61,12 +61,7 @@ describe("Home", () => {
       // }
 
       for (var c of companyContactDetailTitles) {
-        let titleKey = await c.getText();
-        console.log(titleKey);
-        //companyInfo.titleKey = titleKey;
-        // companyInfo.push(titleKey);
-        //console.log(titleKey);
-        //Object.assign(companyInfo, await companyContactDetailTitles.getText(c));
+        Object.assign(companyInfoawait c.getText());
         //companyInfo.push(await c.getText());
       }
       

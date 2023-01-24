@@ -88,8 +88,8 @@ describe("Home", () => {
 
     //     // object
     //     //const companyInformation = {};
-    //     let contactMap = new Map();
-    //     //console.log("HERE:", companyDetails);
+        let contactMap = new Map();
+        //console.log("HERE:", companyDetails);
         
     //      //********** to use
         //loops & pushes the titles to new variable 

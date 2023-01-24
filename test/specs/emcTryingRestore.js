@@ -1,3 +1,19 @@
+//const fs = require('fs');
+
+//helper function (time 5.50)
+// function jsonReader(filePath, cb) {
+//     fs.readFile(filePath, 'utf-8', (err, fileData) => {
+//         if (err) {
+//             return cb && cb(err);
+//         } try {
+//             const object = JSON.parse(fileData);
+//             return cb & cb(null, object);
+//         } catch (err) {
+//             return cb & cb(err);
+//         }
+//     })
+// }
+
 describe("Home", () => {
     it("Open URL, get href of each directory page & get data", async () => {
         await browser.url("/emc/browse-companies");
@@ -15,6 +31,8 @@ describe("Home", () => {
         let direct = [];
         // final array of comoany data
         const companyList = [];
+        let anObject = {};
+       
         //console.log("Over here:", direct);
 
        for (var i = 0; i < hrefs.length; i++) {
@@ -32,6 +50,7 @@ describe("Home", () => {
           }
         
        }
+      
 
        /// merging new things created
        for (var p = 0; p < threePages.length; p++) {
@@ -47,7 +66,7 @@ describe("Home", () => {
         // company details - values
         const companyDetails = await $$('.gfdCompanyDetailsCol p');
         const companyInformation = [];
-        let contactMap = new Map();
+        //let contactMap = new Map();
         //console.log("HERE:", companyDetails);
         
          //********** to use
@@ -63,34 +82,36 @@ describe("Home", () => {
       }
 
       for (var h = 0; h < headingText.length; h ++ ) {
-        contactMap.set(headingText[h], companyInformation[h]);
-      }
-      // maybe push create add to file here:
-      // "name": varaible
-      // issue is with key value format
+    
 
-         companyList.push(contactMap);
+        anObject =  Object.assign(...headingText.map((k, i) => ({ [k]: companyInformation[i]}) ))
+       
+
+      }
+
+      console.log("here:", anObject);
+        
+
        }
-    console.log("HERE:", companyList);
+
+
+      
+
+    //    jsonReader('./test/data/companies.json', (err, data) => {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         //data = companyList,
+    //         fs.appendFile('./test/data/companies.json', JSON.stringify(companyList, null, 2), err => {  
+    //             if (err) {
+    //                 console.log(err);
+    //             }
+    //          })
+    //      }
+    // });
 
     })
 
 })
 
     
-  
-
-
-
-
-
-
-      //contactMap.set(headingText[h], companyInformation[h]);
-      //   maybe push create add to file here:
-      //   "name": varaible
-      //   issue is with key value format
-  
-        //    companyList.push(contactMap);
-         //}
-  
-      //console.log("HERE:", companyList)
