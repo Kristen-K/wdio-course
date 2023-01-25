@@ -87,12 +87,14 @@ describe("Home", () => {
        
 
       }
-
+      
+      let objectArray = Object.entries(anObject);
+      // delete before run
       for (var k = 0; k < companyList.length; k++) {
-      //   companyObject =  Object.assign(...companyList.map((k, i) => ({ [k]: anObject[i]}) ))
-      companyObject = [companyList, ...anObject];
+        objectArray['Company name:'] = companyList[k];
        }
-     
+
+       console.log("HERE:", objectArray);
       
         
 
@@ -100,7 +102,7 @@ describe("Home", () => {
 
 
        //console.log("here:", companyList);
-       console.log("here:", companyObject);
+       //console.log("here:", companyObject);
 
     //    jsonReader('./test/data/companies.json', (err, data) => {
     //     if (err) {
