@@ -32,6 +32,7 @@ describe("Home", () => {
         // final array of comoany data
         const companyList = [];
         let anObject = {};
+        let companyObject = {};
        
         //console.log("Over here:", direct);
 
@@ -82,27 +83,32 @@ describe("Home", () => {
       }
 
       for (var h = 0; h < headingText.length; h ++ ) {
-    
-
         anObject =  Object.assign(...headingText.map((k, i) => ({ [k]: companyInformation[i]}) ))
        
 
       }
 
-      console.log("here:", anObject);
+      for (var k = 0; k < companyList.length; k++) {
+      //   companyObject =  Object.assign(...companyList.map((k, i) => ({ [k]: anObject[i]}) ))
+      companyObject = [companyList, ...anObject];
+       }
+     
+      
         
 
        }
 
 
-      
+       //console.log("here:", companyList);
+       console.log("here:", companyObject);
 
     //    jsonReader('./test/data/companies.json', (err, data) => {
     //     if (err) {
     //         console.log(err);
     //     } else {
-    //         //data = companyList,
-    //         fs.appendFile('./test/data/companies.json', JSON.stringify(companyList, null, 2), err => {  
+    //       data.name = companyList;
+    //         anObject;
+    //         fs.appendFile('./test/data/companies.json', JSON.stringify(data, null, 2), err => {  
     //             if (err) {
     //                 console.log(err);
     //             }
