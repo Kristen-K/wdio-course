@@ -32,7 +32,6 @@ describe("Home", () => {
         // final array of comoany data
         const companyList = [];
         let anObject = {};
-        let companyObject = {};
        
         //console.log("Over here:", direct);
 
@@ -67,8 +66,6 @@ describe("Home", () => {
         // company details - values
         const companyDetails = await $$('.gfdCompanyDetailsCol p');
         const companyInformation = [];
-        //let contactMap = new Map();
-        //console.log("HERE:", companyDetails);
         
          //********** to use
         //loops & pushes the titles to new variable 
@@ -89,20 +86,14 @@ describe("Home", () => {
       }
       
       let objectArray = Object.entries(anObject);
-      // delete before run
       for (var k = 0; k < companyList.length; k++) {
         objectArray['Company name:'] = companyList[k];
        }
 
        console.log("HERE:", objectArray);
-      
-        
+           
 
        }
-
-
-       //console.log("here:", companyList);
-       //console.log("here:", companyObject);
 
     //    jsonReader('./test/data/companies.json', (err, data) => {
     //     if (err) {
