@@ -30,10 +30,8 @@ describe("Home", () => {
         let threePages = [];
         let direct = [];
         // final array of comoany data
-        //const companyList = [];
         let anObject = {};
        
-        //console.log("Over here:", direct);
 
        for (var i = 0; i < hrefs.length; i++) {
         await browser.url(hrefs[i]);
@@ -57,7 +55,6 @@ describe("Home", () => {
         await browser.url(threePages[p]);
         // asigns element to variable then logs text - will need to give name to each object so will keep variable 
         let title = await $('h1').getText();
-        console.log("HERE:", title)
 
         ///// heading keys
         const contactHeadings = await $$('.gfdCompanyDetailsTitle');
@@ -88,6 +85,9 @@ describe("Home", () => {
       let objectArray = Object.entries(anObject);
       for (var k = 0; k < title.length; k++) {
         objectArray['Company name:'] = title;
+        let path = `test/data/logos/${title}.png`;
+        const logos = await $('.img-responsive')
+        await logos.saveScreenshot(path);
        }
 
        console.log("HERE:", objectArray);
