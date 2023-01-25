@@ -1,6 +1,4 @@
-const fs = require('fs');
-
-
+const fs = require("fs");
 
 // helper function (time 5.50)
 // function jsonReader(filePath, cb) {
@@ -16,14 +14,12 @@ const fs = require('fs');
 //     })
 // }
 
-
-//created oject/ updatd object 
+//created oject/ updatd object
 // const anotherObject = {
 //     name: 'Jack Hint',
 //     job_count: '3',
 //     postcode: 'kr6 7ic'
 // }
-
 
 //const jsonString = JSON.stringify(anotherObject);
 //console.log(jsonString);
@@ -44,7 +40,6 @@ const fs = require('fs');
 //      }
 // })
 
-
 // executes jsonReader helper function
 // jsonReader('./test/data/companies.json', (err, data) => {
 //     if (err) {
@@ -53,7 +48,6 @@ const fs = require('fs');
 //         console.log(data.name);
 //     }
 // })
-
 
 // async reads file method
 // fs.readFile('./test/data/companies.json', 'utf-8', (err, jsonString) => {
@@ -70,15 +64,50 @@ const fs = require('fs');
 //  }
 // });
 
-//reated oject/ updatd object 
+//reated oject/ updatd object
 const newObject = {
-    "name": "pool", 
-    "address": " 52 reesher road, fr4 89e",
-    "number": "9"
-}
+  name: "big pool",
+  address: " 52 reesher road, fr4 89e",
+  number: "9",
+};
 
- // 7.22
-fs.writeFile('./test/data/companies.json', JSON.stringify(newObject, null, 2), err => {
+// fs.readFile("./test/data/companies.json", function (err, data) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     var json = JSON.parse(data);
+//     const newJSON = Object.assign(json, newObject);
+//     fs.writeFile(
+//       "./test/data/companies.json",
+//       JSON.stringify(newJSON, null, 2),
+//       (err) => {
+//         console.log(err);
+//       }
+//     );
+//   }
+// });
+
+// const file = fs.readFile('./test/data/donkey.json');
+
+// //check if file is empty
+// if (file.length == 0) {
+//     //add data to json file
+//     fs.writeFile('./test/data/donkey.json', JSON.stringify(newObject, null, 2), err => {
+//         if (err) {
+//             console.log(err);
+//             } else {
+//                 console.log('File successfully written!');
+//             }
+//     });
+//}
+
+// 7.22
+
+//let data = JSON.parse('[' + newObject.join(',' + ']'))
+
+//console.log(data);
+
+fs.writeFileSync('./test/data/donkey.json', JSON.stringify(newObject, null, 2),{flag:'a+'}, err => {
     if (err) {
         console.log(err);
         } else {
@@ -87,3 +116,4 @@ fs.writeFile('./test/data/companies.json', JSON.stringify(newObject, null, 2), e
 });
 
 
+// add to [ array] and commas
