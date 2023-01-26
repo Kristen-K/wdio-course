@@ -36,21 +36,19 @@ describe("Home", () => {
       }
     }
 
-    /// merging new things created
     for (var p = 0; p < threePages.length; p++) {
       await browser.url(threePages[p]);
-      // asigns element to variable then logs text - will need to give name to each object so will keep variable
+      // main h1 company title
       let title = await $("h1").getText();
 
       ///// heading keys
       const contactHeadings = await $$(".gfdCompanyDetailsTitle");
       const headingText = [];
 
-      // company details - values
+      // company details
       const companyDetails = await $$(".gfdCompanyDetailsCol p");
       const companyInformation = [];
 
-      //********** to use
       //loops & pushes the titles to new variable
       for (var contact of contactHeadings) {
         headingText.push(await contact.getText());
