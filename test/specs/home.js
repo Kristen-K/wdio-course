@@ -45,7 +45,7 @@ describe("Home", () => {
   });
 
   //img.custom-logo
-  it("Click on logo button & assert URL contains does not contain get-started text", async () => {
+  it("Click on logo button & assert URL does not contain get-started text", async () => {
     allureReporter.addFeature("Logo verification");
     // Click Logo 
     await HomePage.imageLogo.click();
