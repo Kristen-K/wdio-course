@@ -1,24 +1,11 @@
-import HomePage from '../pages/home-page';
-import allureReporter from '@wdio/allure-reporter';
+import HomePage from "../pages/home-page";
+import allureReporter from "@wdio/allure-reporter";
 
 describe("Home", () => {
-
-  before(async () => {
-    console.log('THIS CAN BE USED FOR TEST SETUP')
-  })
-
   beforeEach(async () => {
-    console.log('THIS RUNS BEFORE EACH TEST');
     await HomePage.open();
-  })
+  });
 
-  after(async () => {
-    console.log('THIS CAN BE USED FOR TEST CLEANUP')
-  })
-
-  afterEach(async () => {
-    console.log('THIS RUNS AFTER EACH TEST');
-  })
   it("Open URL & assert test", async () => {
     allureReporter.addSeverity("minor");
     //Assert title
@@ -47,7 +34,7 @@ describe("Home", () => {
   //img.custom-logo
   it("Click on logo button & assert URL does not contain get-started text", async () => {
     allureReporter.addFeature("Logo verification");
-    // Click Logo 
+    // Click Logo
     await HomePage.imageLogo.click();
 
     //Assert url doesn't contain get-started text
@@ -58,14 +45,7 @@ describe("Home", () => {
     // find heading element
     const headingEl = await HomePage.txtHeading;
 
-    // get the test
-    // alt long way
-    //const headingText = await headingEl.getText();
-
     //Assert the text
-    await expect(headingEl).toHaveText('Think different. Make different.');
-
-    // alt long way
-    //await expect(headingText).toEqual('Think different. Make different.');
+    await expect(headingEl).toHaveText("Think different. Make different.");
   });
 });
