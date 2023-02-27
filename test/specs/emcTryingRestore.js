@@ -14,7 +14,7 @@ describe("Home", () => {
 
     let threePages = [];
     let direct = [];
-    // final array of comoany data
+    // final array of company data
     let anObject = {};
     let objectArray = {};
     let companiesArray = [];
