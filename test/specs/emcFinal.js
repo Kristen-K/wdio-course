@@ -68,17 +68,15 @@ describe("Home", () => {
       objectArray = Object.entries(anObject);
 
       for (var k = 0; k < title.length; k++) {
-      
         objectArray = { "Company name:": title, ...anObject };
-      
 
         let path = `test/data/logos/${title}.png`;
-        const logos = await $('.img-responsive')
+        const logos = await $(".img-responsive");
         await logos.saveScreenshot(path);
       }
       companiesArray.push(objectArray);
     }
-    
+
     fs.writeFileSync(
       "./test/data/companies.json",
       JSON.stringify(companiesArray, null, 2),
